@@ -1,4 +1,4 @@
-# Faculty-Subject-Allocation-Management-System-
+# FacultySubjectAllocationManagementSystem
  In Faculty Subject Allocation Management System we use PHP and Mysql database. 
  This is the project which keep records of Teachers where teachers can enter priority to the subjects they prefer to teach. This data is sent to the hod who allots subjects to the faculty. 
  Faculty Subject Allocation Management System has four module i.e. admin, faculty, hod and users.
