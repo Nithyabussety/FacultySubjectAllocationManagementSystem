@@ -32,10 +32,10 @@ include('includes/dbconnection.php');
 				<div class="row">
 					<div class="col-lg-6">
 						<div class="banner_content">
-							<h2>
+							<h3>
 								Welcome to<br>
 								Faculty Subject Allocation Management System
-							</h2>
+							</h3>
 				
 							<div class="search_course_wrap">
 <form action="search-teacher.php" class="form_box d-flex justify-content-between w-100" method="post" name="search">
