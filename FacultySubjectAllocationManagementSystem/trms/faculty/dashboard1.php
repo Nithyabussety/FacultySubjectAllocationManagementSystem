@@ -59,7 +59,6 @@ if (strlen($_SESSION['trmsaid']==0)) {
                 </div>
             </div>
         </div>
-
         
 
     <!-- Right Panel -->
@@ -70,12 +69,8 @@ if (strlen($_SESSION['trmsaid']==0)) {
     <script src="assets/js/main.js"></script>
 
 
-    <script src="vendors/chart.js/dist/Chart.bundle.min.js"></script>
-    <script src="assets/js/dashboard.js"></script>
-    <script src="assets/js/widgets.js"></script>
-    <script src="vendors/jqvmap/dist/jquery.vmap.min.js"></script>
-    <script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-    <script src="vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    
+
     <script>
         (function($) {
             "use strict";

@@ -8,21 +8,21 @@ if (strlen($_SESSION['trmsaid']==0)) {
   } else{
 if(isset($_POST['submit']))
 {
-$facultyid=$_SESSION['trmsaid'];
+$adminid=$_SESSION['trmsaid'];
 $cpassword=md5($_POST['currentpassword']);
 $newpassword=md5($_POST['newpassword']);
-$sql ="SELECT ID FROM tblteacher WHERE ID=:facultyid and Password=:cpassword";
+$sql ="SELECT ID FROM tblteachcer WHERE ID=:adminid and Password=:cpassword";
 $query= $dbh -> prepare($sql);
-$query-> bindParam(':facultyid', $facultyid, PDO::PARAM_STR);
+$query-> bindParam(':adminid', $adminid, PDO::PARAM_STR);
 $query-> bindParam(':cpassword', $cpassword, PDO::PARAM_STR);
 $query-> execute();
 $results = $query -> fetchAll(PDO::FETCH_OBJ);
 
 if($query -> rowCount() > 0)
 {
-$con="update tblteacher set Password=:newpassword where ID=:facultyid";
+$con="update tblteacher set Password=:newpassword where ID=:adminid";
 $chngpwd1 = $dbh->prepare($con);
-$chngpwd1-> bindParam(':facultyid', $facultyid, PDO::PARAM_STR);
+$chngpwd1-> bindParam(':adminid', $adminid, PDO::PARAM_STR);
 $chngpwd1-> bindParam(':newpassword', $newpassword, PDO::PARAM_STR);
 $chngpwd1->execute();
 
