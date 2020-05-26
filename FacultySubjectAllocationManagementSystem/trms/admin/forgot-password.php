@@ -73,7 +73,7 @@ return true;
         <div class="container">
             <div class="login-content">
                 <div class="login-logo">
-                      <h3 style="color:black">Teacher Record Management System </h3>
+                      <h3 style="color:black">Faculty Subject Allocation Management System </h3>
                     <hr  color="red"/>
                 </div>
                 <div class="login-form">

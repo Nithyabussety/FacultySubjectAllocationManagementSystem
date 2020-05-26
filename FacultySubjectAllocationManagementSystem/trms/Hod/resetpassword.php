@@ -10,7 +10,7 @@ if(isset($_POST['submit']))
     $email=$_SESSION['email'];
     $password=md5($_POST['newpassword']);
 
-        $query=mysqli_query($con,"update tbladmin set Password='$password'  where  Email='$email' && MobileNumber='$contactno' ");
+        $query=mysqli_query($con,"update tblhod set Password='$password'  where  Email='$email' && MobileNumber='$contactno' ");
    if($query)
    {
 echo "<script>alert('Password successfully changed');</script>";
