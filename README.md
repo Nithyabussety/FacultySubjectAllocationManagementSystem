@@ -58,13 +58,21 @@ Password: Test@123
 Credentials for faculty and HOD panel : Will be known adding teacher or HOD by the admin.
 
 Some Project Screenshots:
-Home Page:https://user-images.githubusercontent.com/43372399/83328297-b053c080-a29f-11ea-97a7-dbbd98cbdaaf.png
-Admin Login Page:https://user-images.githubusercontent.com/43372399/83328303-bb0e5580-a29f-11ea-9a65-6e05906623f8.png
-Admin Dashboard:https://user-images.githubusercontent.com/43372399/83328310-c1043680-a29f-11ea-95f6-bcf2f1572a02.png
-Add Teachers Page:https://user-images.githubusercontent.com/43372399/83328316-c5305400-a29f-11ea-9173-e8541dcedf59.png
-Admin Profile Page:https://user-images.githubusercontent.com/43372399/83328327-d5483380-a29f-11ea-8f0c-d90a6a219618.png
-Priority Page:https://user-images.githubusercontent.com/43372399/83328335-daa57e00-a29f-11ea-8d54-1f90604d54af.png
-faculty Priority Entry Page:https://user-images.githubusercontent.com/43372399/83328342-df6a3200-a29f-11ea-947e-51599906928e.png
-Change Password Page:https://user-images.githubusercontent.com/43372399/83328348-e5601300-a29f-11ea-9a66-f4243dcf14e5.png
+
+•	Home Page:https://user-images.githubusercontent.com/43372399/83328297-b053c080-a29f-11ea-97a7-dbbd98cbdaaf.png
+
+•	Admin Login Page:https://user-images.githubusercontent.com/43372399/83328303-bb0e5580-a29f-11ea-9a65-6e05906623f8.png
+
+•	Admin Dashboard:https://user-images.githubusercontent.com/43372399/83328310-c1043680-a29f-11ea-95f6-bcf2f1572a02.png
+
+•	Add Teachers Page:https://user-images.githubusercontent.com/43372399/83328316-c5305400-a29f-11ea-9173-e8541dcedf59.png
+
+•	Admin Profile Page:https://user-images.githubusercontent.com/43372399/83328327-d5483380-a29f-11ea-8f0c-d90a6a219618.png
+
+•	Priority Page:https://user-images.githubusercontent.com/43372399/83328335-daa57e00-a29f-11ea-8d54-1f90604d54af.png
+
+•	Faculty Priority Entry Page:https://user-images.githubusercontent.com/43372399/83328342-df6a3200-a29f-11ea-947e-51599906928e.png
+
+•	Change Password Page:https://user-images.githubusercontent.com/43372399/83328348-e5601300-a29f-11ea-9a66-f4243dcf14e5.png
 
 
