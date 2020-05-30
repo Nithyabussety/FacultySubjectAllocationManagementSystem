@@ -59,7 +59,7 @@ Credentials for faculty and HOD panel : Will be known adding teacher or HOD by t
 
 Some Project Screenshots:
 
-•	Home Page:https://user-images.githubusercontent.com/43372399/83328297-b053c080-a29f-11ea-97a7-dbbd98cbdaaf.png
+•	Home Page:https://user-images.githubusercontent.com/43372399/83328676-759f5780-a2a2-11ea-956d-913e0e068f10.PNG
 
 •	Admin Login Page:https://user-images.githubusercontent.com/43372399/83328303-bb0e5580-a29f-11ea-9a65-6e05906623f8.png
 
