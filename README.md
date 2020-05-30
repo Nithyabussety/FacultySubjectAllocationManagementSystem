@@ -61,18 +61,19 @@ Some Project Screenshots:
 
 •	Home Page:https://user-images.githubusercontent.com/43372399/83328676-759f5780-a2a2-11ea-956d-913e0e068f10.PNG
 
-•	Admin Login Page:https://user-images.githubusercontent.com/43372399/83328303-bb0e5580-a29f-11ea-9a65-6e05906623f8.png
+•	Admin Login Page:https://user-images.githubusercontent.com/43372399/83328723-c6af4b80-a2a2-11ea-88fd-bba177f0884c.PNG
 
-•	Admin Dashboard:https://user-images.githubusercontent.com/43372399/83328310-c1043680-a29f-11ea-95f6-bcf2f1572a02.png
+•	Admin Dashboard:https://user-images.githubusercontent.com/43372399/83328727-d0d14a00-a2a2-11ea-896e-91c85c9c3064.PNG
 
-•	Add Teachers Page:https://user-images.githubusercontent.com/43372399/83328316-c5305400-a29f-11ea-9173-e8541dcedf59.png
+•	Add Teachers Page:https://user-images.githubusercontent.com/43372399/83328732-dd55a280-a2a2-11ea-9adc-911e811870bc.PNG
 
-•	Admin Profile Page:https://user-images.githubusercontent.com/43372399/83328327-d5483380-a29f-11ea-8f0c-d90a6a219618.png
+•	Admin Profile Page:https://user-images.githubusercontent.com/43372399/83328735-e181c000-a2a2-11ea-8667-bbe6ac8134d0.PNG
 
-•	Priority Page:https://user-images.githubusercontent.com/43372399/83328335-daa57e00-a29f-11ea-8d54-1f90604d54af.png
+•	Priority Page:https://user-images.githubusercontent.com/43372399/83328737-ecd4eb80-a2a2-11ea-8465-4628643f98fb.PNG
 
-•	Faculty Priority Entry Page:https://user-images.githubusercontent.com/43372399/83328342-df6a3200-a29f-11ea-947e-51599906928e.png
+•	Faculty Priority Entry Page:https://user-images.githubusercontent.com/43372399/83328741-f0687280-a2a2-11ea-96f8-40e47e2ec53e.PNG
 
-•	Change Password Page:https://user-images.githubusercontent.com/43372399/83328348-e5601300-a29f-11ea-9a66-f4243dcf14e5.png
+•	Change Password Page:https://user-images.githubusercontent.com/43372399/83328744-f52d2680-a2a2-11ea-8bc5-eba725949e27.PNG
+
 
 
