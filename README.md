@@ -75,5 +75,8 @@ Some Project Screenshots:
 
 •	Change Password Page:https://user-images.githubusercontent.com/43372399/83328744-f52d2680-a2a2-11ea-8bc5-eba725949e27.PNG
 
+•	Hod Allotment Page: https://user-images.githubusercontent.com/43372399/83402132-cf7b5b00-a423-11ea-9bf1-0666ff834d28.PNG
+
+
 
 
