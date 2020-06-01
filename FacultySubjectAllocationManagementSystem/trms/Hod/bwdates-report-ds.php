@@ -2,24 +2,12 @@
 session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
+error_reporting(0);
 if (strlen($_SESSION['trmsaid']==0)) {
   header('location:logout.php');
   } else{
-    if(isset($_POST['submit']))
-  {
-$eid=$_GET['editid'];
-$subjects=$_POST['subjects'];
 
-$sql="UPDATE tblsubjects set Subject=:subjects where ID=:eid";
 
-$query = $dbh->prepare($sql);
-$query->bindParam(':subjects',$subjects,PDO::PARAM_STR);
-$query->bindParam(':eid',$eid,PDO::PARAM_STR);
-    $query->execute();
-
-    echo '<script>alert("Subject has been updated")</script>';
-
-  }
   ?>
 
 <!doctype html>
@@ -27,10 +15,11 @@ $query->bindParam(':eid',$eid,PDO::PARAM_STR);
 
 <head>
    
-    <title>TRMS|| Update Subjects</title>
-  
+    <title>TRMS Reports</title>
+   
+
     <link rel="apple-touch-icon" href="apple-icon.png">
-  
+   
 
 
     <link rel="stylesheet" href="vendors/bootstrap/dist/css/bootstrap.min.css">
@@ -42,7 +31,6 @@ $query->bindParam(':eid',$eid,PDO::PARAM_STR);
     <link rel="stylesheet" href="assets/css/style.css">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-
 
 
 </head>
@@ -61,7 +49,7 @@ $query->bindParam(':eid',$eid,PDO::PARAM_STR);
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Update Update Subjects</h1>
+                        <h1>Between Dates Reports</h1>
                     </div>
                 </div>
             </div>
@@ -70,8 +58,8 @@ $query->bindParam(':eid',$eid,PDO::PARAM_STR);
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
                             <li><a href="dashboard1.php">Dashboard</a></li>
-                            <li><a href="manage-subjects.php">Update Subject</a></li>
-                            <li class="active">Update</li>
+                            <li><a href="bwdates-report-ds.php">Between Dates Reports</a></li>
+                            <li class="active">Reports</li>
                         </ol>
                     </div>
                 </div>
@@ -91,30 +79,21 @@ $query->bindParam(':eid',$eid,PDO::PARAM_STR);
 
                     <div class="col-lg-12">
                         <div class="card">
-                            <div class="card-header"><strong>Subject</strong><small> Detail</small></div>
-                            <form name="" method="post" action="">
-                                
+                            <div class="card-header"><strong>Between Dates</strong><small> Reports</small></div>
+                            <form name="bwdatesreport"  action="bwdates-reports-details.php" method="post">
+                                <p style="font-size:16px; color:red" align="center"> <?php if($msg){
+    echo $msg;
+  }  ?> </p>
                             <div class="card-body card-block">
- <?php
-$eid=$_GET['editid'];
-$sql="SELECT * from  tblsubjects where ID=$eid";
-$query = $dbh -> prepare($sql);
-$query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query->rowCount() > 0)
-{
-foreach($results as $row)
-{               ?>
-                                <div class="form-group"><label for="company" class=" form-control-label">Subject Name</label><input type="text" name="subjects" value="<?php  echo $row->Subject;?>" class="form-control" id="subjects" required="true"></div>
-                                                </div>
-                                                   <?php $cnt=$cnt+1;}} ?> 
-                                                     <div class="card-footer">
-                                                       <p style="text-align: center;"><button type="submit" class="btn btn-primary btn-sm" name="submit" id="submit">
-                                                            <i class="fa fa-dot-circle-o"></i> Update
-                                                        </button></p>
-                                                        
+ 
+                                <div class="form-group"><label for="company" class=" form-control-label">From Date</label><input type="date" name="fromdate" id="fromdate" class="form-control" required="true"></div>
+                                    <div class="form-group"><label for="vat" class=" form-control-label">To Date</label><input type="date" name="todate"  class="form-control" required="true"></div>
+                                        
                                                     </div>
+                                                   <p style="text-align: center;"><button type="submit" class="btn btn-primary btn-sm" name="submit" id="submit">
+                                                            <i class="fa fa-dot-circle-o"></i> Submit
+                                                        </button></p>
+                                                  
                                                 </div>
                                                 </form>
                                             </div>

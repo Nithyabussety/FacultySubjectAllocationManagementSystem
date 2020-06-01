@@ -13,7 +13,8 @@ if (strlen($_SESSION['trmsaid']==0)) {
   $email=$_POST['email'];
   $qualification=$_POST['qualifications'];
   $add=$_POST['address'];
-  $sql="UPDATE tblhod set Name=:hodname,MobileNumber=:mobilenumber,Email=:email, Qualifications=:qualifications, Address=:address where ID=:hid";
+
+  $sql="UPDATE tblhod set Name=:hodname,MobileNumber=:mobilenumber,Email=:email, Qualifications=:qualifications, Address=:address where Id=:hid";
      $query = $dbh->prepare($sql);
      $query->bindParam(':hodname',$HName,PDO::PARAM_STR);
      $query->bindParam(':email',$email,PDO::PARAM_STR);
@@ -110,7 +111,7 @@ if($query -> rowCount() > 0)
                             <div class="card-body card-block">
  <?php
 $hodid=$_SESSION['trmsaid'];
-$sql="SELECT Name,UserName,MobileNumber,Email,Qualifications,Address,TeachingSub,JoiningDate,RegDate from tblhod where ID=$hodid";
+$sql="SELECT Name,UserName,MobileNumber,Email,Qualifications,Address,TeacherSub,JoiningDate,RegDate from tblhod where ID=$hodid";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -130,7 +131,7 @@ foreach($results as $row)
                                                     <div class="form-group"><label for="company" class=" form-control-label">Address</label><input type="text" name="address" value="<?php  echo $row->Address;?>" class="form-control" required='true'></div>
                                                      
                                                      <div class="col-12">
-                                                        <div class="form-group"><label for="postal-code" class=" form-control-label">Subjects Taught</label><input type="text" name="subjects" value="<?php  echo $row->TeachingSub;?>" readonly="" class="form-control"></div>
+                                                        <div class="form-group"><label for="postal-code" class=" form-control-label">Subjects Taught</label><input type="text" name="subjects" value="<?php  echo $row->TeacherSub;?>" readonly="" class="form-control"></div>
                                                         </div>
                                                         <div class="col-12">
                                                         <div class="form-group"><label for="postal-code" class=" form-control-label">HOD Joining Date</label><input type="text" name="" value="<?php  echo $row->JoiningDate;?>" readonly="" class="form-control"></div>
@@ -164,8 +165,8 @@ foreach($results as $row)
                                 <!-- Right Panel -->
 
 
-                            <script src="vendors/jquery/dist/jquery.min.js"></script>
-                            <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
+                           <script src="vendors/jquery/dist/jquery.min.js"></script>
+                           <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
 
                             <script src="vendors/jquery-validation/dist/jquery.validate.min.js"></script>
                             <script src="vendors/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>

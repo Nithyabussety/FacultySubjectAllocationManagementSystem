@@ -55,7 +55,7 @@ if (strlen($_SESSION['trmsaid']==0)) {
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                            <li><a href="dashboard.php">Dashboard</a></li>
+                            <li><a href="dashboard1.php">Dashboard</a></li>
                             <li><a href="search.php">Search Teacher</a></li>
                             <li class="active">Teacher</li>
                         </ol>
@@ -113,13 +113,13 @@ $sdata=$_POST['searchdata'];
                   <th>Teacher Name</th>
                   <th>Subject</th>
                     <th>Registration Date</th>       
-                   <th>Action</th>
+            
                 </tr>
                                         </tr>
                                         </thead>
                                     <?php
-
-$sql="SELECT * from tblteacher where Name like '%$sdata%' || TeacherSub like  '%$sdata%'";
+$session_id=$_SESSION['trmsaid'];
+$sql="SELECT tblteacher.Name,tblteacher.TeacherSub,tblteacher.RegDate from tblteacher,tblhod where (tblteacher.Name like '%$sdata%' || tblteacher.TeacherSub like  '%$sdata%') and tblhod.Id=$session_id and tblhod.DeptId=tblteacher.DeptId ";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -135,13 +135,12 @@ foreach($results as $row)
             <td><?php  echo htmlentities($row->Name);?></td>
                   <td><?php  echo htmlentities($row->TeacherSub);?></td>
                   <td><?php  echo htmlentities($row->RegDate);?></td>
-                  <td><a href="edit-teacher-detail.php?editid=<?php echo htmlentities ($row->ID);?>">Edit Details</a></td>
                 </tr>
                  <?php 
 $cnt=$cnt+1;
 } } else { ?>
   <tr>
-    <td colspan="8"> No record found against this search</td>
+    <td colspan="8"> No record found against this search </td>
 
   </tr>
    

@@ -1,33 +1,19 @@
-<?php
+  <?php
 session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
 if (strlen($_SESSION['trmsaid']==0)) {
   header('location:logout.php');
   } else{
-    if(isset($_POST['submit']))
-  {
-$eid=$_GET['editid'];
-$subjects=$_POST['subjects'];
-
-$sql="UPDATE tblsubjects set Subject=:subjects where ID=:eid";
-
-$query = $dbh->prepare($sql);
-$query->bindParam(':subjects',$subjects,PDO::PARAM_STR);
-$query->bindParam(':eid',$eid,PDO::PARAM_STR);
-    $query->execute();
-
-    echo '<script>alert("Subject has been updated")</script>';
-
-  }
-  ?>
+    
+?>
 
 <!doctype html>
 <html class="no-js" lang="en">
 
 <head>
    
-    <title>TRMS|| Update Subjects</title>
+    <title>TRMS||Allot Faculty</title>
   
     <link rel="apple-touch-icon" href="apple-icon.png">
   
@@ -42,8 +28,6 @@ $query->bindParam(':eid',$eid,PDO::PARAM_STR);
     <link rel="stylesheet" href="assets/css/style.css">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-
-
 
 </head>
 
@@ -61,7 +45,7 @@ $query->bindParam(':eid',$eid,PDO::PARAM_STR);
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Update Update Subjects</h1>
+                        <h1>Allot Faculty</h1>
                     </div>
                 </div>
             </div>
@@ -70,8 +54,8 @@ $query->bindParam(':eid',$eid,PDO::PARAM_STR);
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
                             <li><a href="dashboard1.php">Dashboard</a></li>
-                            <li><a href="manage-subjects.php">Update Subject</a></li>
-                            <li class="active">Update</li>
+                            <li><a href="viewsubjects.php">Allot Faculty</a></li>
+                            <li class="active">Allot</li>
                         </ol>
                     </div>
                 </div>
@@ -91,43 +75,101 @@ $query->bindParam(':eid',$eid,PDO::PARAM_STR);
 
                     <div class="col-lg-12">
                         <div class="card">
-                            <div class="card-header"><strong>Subject</strong><small> Detail</small></div>
+                            <div class="card-header"><strong>Faculty</strong><small> Detail</small></div>
                             <form name="" method="post" action="">
                                 
                             <div class="card-body card-block">
- <?php
-$eid=$_GET['editid'];
-$sql="SELECT * from  tblsubjects where ID=$eid";
+                            	<div class="card-body">
+                                <table class="table" >
+                                    <thead>
+                                        <tr>
+                                            <tr>
+                  <th>S.NO</th>
+                  
+                  <th>Faculty Name</th>
+
+                 <th>Priority Number</th>
+
+                  <th>Action</th>
+                </tr>
+                                        </tr>
+                                        </thead>
+
+
+<?php
+$subject_id=$_GET['sub_id'];
+$sql="SELECT tblteacher.Name,tblteacher.ID,tblpriority.Alloted,tblpriority.Priority from tblteacher,tblpriority where tblteacher.ID=tblpriority.FacultyId and tblpriority.SubId=$subject_id";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
 $cnt=1;
+$faculty_ids = "0";
 if($query->rowCount() > 0)
 {
 foreach($results as $row)
-{               ?>
-                                <div class="form-group"><label for="company" class=" form-control-label">Subject Name</label><input type="text" name="subjects" value="<?php  echo $row->Subject;?>" class="form-control" id="subjects" required="true"></div>
-                                                </div>
-                                                   <?php $cnt=$cnt+1;}} ?> 
-                                                     <div class="card-footer">
-                                                       <p style="text-align: center;"><button type="submit" class="btn btn-primary btn-sm" name="submit" id="submit">
+{         
+                  $faculty_ids = $faculty_ids.",".$row->ID
+                  ?>
+
+                  <tr >
+                  <td><?php echo htmlentities($cnt);?></td>
+                  <td><?php echo htmlentities($row->Name);?></td>
+                  <td><?php echo htmlentities($row->Priority);?></td>
+                   <?php
+                    if($row->Alloted >0){  $i=0; ?>
+                  
+                  <td><input type="checkbox" name="alloted[]" id="alloted" value="<?php echo $row->ID?>" checked="checked"></td>
+                  <?php } else { ?>
+                  <td><input type="checkbox" name="alloted[]" id="alloted" value="<?php echo $row->ID?>"></td>
+               </tr><?php }?>
+               <?php $cnt=$cnt+1;$i=$i+1; }} ?>  
+                               </table>
+                   
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                  <p style="text-align: center;"><button type="submit" class="btn btn-primary btn-sm" name="update" id="update">
                                                             <i class="fa fa-dot-circle-o"></i> Update
-                                                        </button></p>
-                                                        
-                                                    </div>
-                                                </div>
-                                                </form>
+                                                        </button></p> </div>
+                    </form>
+ 
+<?php
+if(isset($_POST['update'])){
+  $subject_id = $_GET['sub_id'];
+  $sql="";
+ $flag=0;
+
+  $allot = "0";
+  if(!empty($_POST['alloted'])){
+    foreach($_POST['alloted'] as $alloted){
+      $allot = $allot.",".$alloted;
+    };
+  }
+  
+  $sql = $sql."UPDATE tblpriority SET Alloted=0 where FacultyId in ($faculty_ids) and SubId=$subject_id;";
+  $sql = $sql."UPDATE tblpriority SET Alloted=1 where FacultyId in ($allot) and SubId=$subject_id;";
+  $flag=1;
+    
+    if($sql != ""){
+    $query = $dbh->prepare($sql);
+    $query->execute();
+    if($query->rowCount() > 0 or $flag==1){
+      echo '<script>alert("Your profile has been updated")</script>';
+    }else{
+      echo '<script>alert("Something Went Wrong. Please try again")</script>';
+    }
+  }
+ $sql="";
+  $flag=0;
+} ?>
+
+                                             </div>
                                             </div>
-
-
-
-                                           
-                                            </div>
+                                          </div>
                                         </div><!-- .animated -->
                                     </div><!-- .content -->
                                 </div><!-- /#right-panel -->
                                 <!-- Right Panel -->
-
 
                             <script src="vendors/jquery/dist/jquery.min.js"></script>
                             <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
@@ -140,3 +182,4 @@ foreach($results as $row)
 </body>
 </html>
 <?php }  ?>
+

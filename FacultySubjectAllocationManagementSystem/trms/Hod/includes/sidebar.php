@@ -17,7 +17,7 @@
 <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Subjects</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-file-o"></i><a href="enter-priority.php">Enter Priority</a></li>
+                            <li><i class="menu-icon fa fa-file-o"></i><a href="viewsubjects.php">Allot</a></li>
                             
                         </ul>
                     </li>

@@ -157,9 +157,9 @@ if(isset($_POST['update'])){
     $cnt=$cnt+1;
     if ($old_priority == $new_priority){
       // nothing
-    }elseif($old_priority == 0 and $new_priority > 0) {
+    }elseif($old_priority == 0 and $new_priority > 0){
       $sql = $sql."INSERT INTO tblpriority (FacultyId, Priority, SubId) VALUES ($session_id,$new_priority,$subject_id);";
-    }elseif($old_priority != 0 and $new_priority != $old_priority) {
+    }elseif($old_priority != 0 and $new_priority != $old_priority){
       $sql = $sql."UPDATE tblpriority SET Priority=$new_priority where FacultyId=$session_id and SubId=$subject_id;";
     }
   };
